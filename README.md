@@ -5,3 +5,4 @@
 # ToDo
 ---
 - #### build basic todo list
+- #### put it on heroku
