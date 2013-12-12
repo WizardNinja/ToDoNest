@@ -1,9 +1,9 @@
 <% if @todos.findWhere({id: parseInt(@id)}): %>
-	<h1><%= @todos.findWhere({id: parseInt(@id)}).get('description') %></h1>
+	<h1 id="parent_todo"><%= @todos.findWhere({id: parseInt(@id)}).get('description') %></h1>
 <% end %>
 
 <% if parseInt(@id) == 0: %>
-	<h1>To-Do Nest</h1>
+	<a href=""><h1>To-Do Nest</h1></a>
 <% end %>
 
 <form id="new_todo">
@@ -12,10 +12,4 @@
 	<input type="submit" value="Add">
 </form>
 
-<ul>
-	<% for todo in @todos.models: %>
-		<% if parseInt(todo.get('todo_id')) == parseInt(@id): %>
-			<li><%= todo.get('description') %></li>
-		<% end %>
-	<% end %>
-</ul>
+<ul id="todos"></ul>

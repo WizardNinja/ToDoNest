@@ -10,8 +10,13 @@ class ToDoNest.Views.TodosIndex extends Backbone.View
     @collection.on('add', @render, this)
 
   render: ->
-    $(@el).html(@template({todos: @collection, }))
+    $(@el).html(@template(todos: @collection))
+    @collection.each(@appendTodo)
     this
+
+  appendTodo: (todo) =>
+    view = new ToDoNest.Views.Todo(model: todo)
+    @$('#todos').append(view.render().el)
 
   createTodo: (event) ->
     event.preventDefault()

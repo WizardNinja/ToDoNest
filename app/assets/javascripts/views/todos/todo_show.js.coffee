@@ -11,7 +11,12 @@ class ToDoNest.Views.TodoShow extends Backbone.View
 
   render: ->
     $(@el).html(@template({todos: @collection, id: @id}))
+    _.each(@collection.where({todo_id: parseInt(@id)}), @appendTodo)
     this
+
+  appendTodo: (todo) =>
+    view = new ToDoNest.Views.Todo(model: todo)
+    @$('#todos').append(view.render().el)
 
   createTodo: (event) ->
     event.preventDefault()

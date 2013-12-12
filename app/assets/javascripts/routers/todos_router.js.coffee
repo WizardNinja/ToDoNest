@@ -9,8 +9,8 @@ class ToDoNest.Routers.Todos extends Backbone.Router
 
 	index: ->
 		view = new ToDoNest.Views.TodosIndex(collection: @collection)
-		$('#todos').html(view.render().el)
+		$('#todo_list').html(view.render().el)
 
 	show: (id) ->
 		view = new ToDoNest.Views.TodoShow({collection: @collection, id: id})
-		$('#todos').html(view.render().el)
+		$('#todo_list').html(view.render().el)

@@ -5,8 +5,4 @@
 	<input type="submit" value="Add">
 </form>
 
-<ul>
-	<% for todo in @todos.models: %>
-		<li><%= todo.get('description') %></li>
-	<% end %>
-</ul>
+<ul id="todos"></ul>
