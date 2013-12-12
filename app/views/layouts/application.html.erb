@@ -7,6 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<% if current_user %>
+	<span id="user_id" style="display: none;"><%= current_user.id %></span>
+<% end %>
+
 <div id="container">
 	<div id="user_nav">
 		<% if user_signed_in? %>

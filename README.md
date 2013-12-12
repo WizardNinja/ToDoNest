@@ -4,8 +4,7 @@
 
 # ToDo
 ---
-- #### login with devise
-- #### nested todo items
+- #### build UI with backbone
 - #### tree graph using d3
 - #### integrate a calendar
 - #### repeat todos

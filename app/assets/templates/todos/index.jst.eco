@@ -1,0 +1,12 @@
+<h1>To-Do Nest</h1>
+
+<form id="new_todo">
+	<input type="text" name="name" id="new_todo_description">
+	<input type="submit" value="Add">
+</form>
+
+<ul>
+	<% for todo in @todos.models: %>
+		<li><%= todo.get('description') %></li>
+	<% end %>
+</ul>

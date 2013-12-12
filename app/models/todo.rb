@@ -1,5 +1,5 @@
 class Todo < ActiveRecord::Base
-  attr_accessible :description, :todo_id,  :user_id
+  attr_accessible :description, :completed, :todo_id,  :user_id
 
   belongs_to :user
   has_many :todos
