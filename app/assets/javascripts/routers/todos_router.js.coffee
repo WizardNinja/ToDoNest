@@ -4,8 +4,7 @@ class ToDoNest.Routers.Todos extends Backbone.Router
 		'todos/:id': 'show'
 
 	initialize: ->
-		@collection = new ToDoNest.Collections.Todos()
-		@collection.fetch()
+		@collection = collection
 
 	index: ->
 		view = new ToDoNest.Views.TodosIndex(collection: @collection)

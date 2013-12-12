@@ -1,6 +1,4 @@
-<% if @todos.findWhere({id: parseInt(@id)}): %>
-	<h1 id="parent_todo"><%= @todos.findWhere({id: parseInt(@id)}).get('description') %></h1>
-<% end %>
+<h1 id="parent_todo"></h1>
 
 <% if parseInt(@id) == 0: %>
 	<a href=""><h1>To-Do Nest</h1></a>

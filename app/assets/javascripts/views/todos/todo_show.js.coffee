@@ -11,6 +11,8 @@ class ToDoNest.Views.TodoShow extends Backbone.View
 
   render: ->
     $(@el).html(@template({todos: @collection, id: @id}))
+    todo = @collection.findWhere({id: parseInt(@id)})
+    @$("#parent_todo").html(todo.get('description'))
     _.each(@collection.where({todo_id: parseInt(@id)}), @appendTodo)
     this
 
