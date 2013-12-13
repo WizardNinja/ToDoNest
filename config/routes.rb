@@ -1,4 +1,8 @@
 ToDoNest::Application.routes.draw do
-  root to: 'to_do_nest#index'
-  resources :to_do_nest
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+
+  root to: 'main#index'
+  scope "api" do
+  	resources :todos
+  end
 end

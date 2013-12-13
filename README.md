@@ -4,5 +4,9 @@
 
 # ToDo
 ---
-- #### build basic todo list
-- #### put it on heroku
+- #### build UI with backbone
+- #### tree graph using d3
+- #### integrate a calendar
+- #### repeat todos
+- #### assign todos to other users
+- #### reminders with twilio

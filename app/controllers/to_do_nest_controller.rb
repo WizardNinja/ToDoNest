@@ -1,2 +1,0 @@
-class ToDoNestController < ApplicationController
-end

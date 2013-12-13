@@ -1,3 +1,11 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+window.ToDoNest =
+  Models: {}
+  Collections: {}
+  Views: {}
+  Routers: {}
+  initialize: ->
+  	new ToDoNest.Routers.Todos()
+  	Backbone.history.start()
+
+$(document).ready ->
+  ToDoNest.initialize()

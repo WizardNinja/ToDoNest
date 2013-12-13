@@ -2,13 +2,35 @@
 <html>
 <head>
   <title>ToDoNest</title>
+  <%= include_gon %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script>
+  	var collection = new ToDoNest.Collections.Todos();
+  	collection.reset(gon.todos);
+  	console.log(gon.todos);
+  </script>
 </head>
 <body>
 
-<%= yield %>
+<% if current_user %>
+	<span id="user_id" style="display: none;"><%= current_user.id %></span>
+<% end %>
 
+<div id="container">
+	<div id="user_nav">
+		<% if user_signed_in? %>
+			Logged in as <strong><%= current_user.email %></strong>.
+			<%= link_to 'Edit profile', edit_user_registration_path %> |
+			<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+		<% else %>
+			<%= link_to "Sign up", new_user_registration_path %> |
+			<%= link_to "Login", new_user_session_path %>
+		<% end %>
+	</div>
+
+	<%= yield %>
+</div>
 </body>
 </html>
