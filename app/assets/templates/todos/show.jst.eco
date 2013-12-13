@@ -1,8 +1,4 @@
-<h1 id="parent_todo"></h1>
-
-<% if parseInt(@id) == 0: %>
-	<a href=""><h1>To-Do Nest</h1></a>
-<% end %>
+<h1><a id="parent_todo" href="#"></a></h1>
 
 <form id="new_todo">
 	<input type="text" name="name" id="new_todo_description">

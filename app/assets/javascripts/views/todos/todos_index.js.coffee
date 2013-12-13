@@ -8,6 +8,7 @@ class ToDoNest.Views.TodosIndex extends Backbone.View
   initialize: ->
     @collection.on('sync', @render, this)
     @collection.on('add', @render, this)
+    @collection.on('all', @render, this)
 
   render: ->
     $(@el).html(@template(todos: @collection))

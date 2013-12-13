@@ -1,4 +1,4 @@
-<h1>To-Do Nest</h1>
+<h1><a href="#todos/0">To-Do Nest</a></h1>
 
 <form id="new_todo">
 	<input type="text" name="name" id="new_todo_description">

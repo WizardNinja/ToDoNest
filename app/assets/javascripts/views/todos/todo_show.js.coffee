@@ -8,11 +8,17 @@ class ToDoNest.Views.TodoShow extends Backbone.View
   initialize: ->
     @collection.on('sync', @render, this)
     @collection.on('add', @render, this)
+    @collection.on('all', @render, this)
 
   render: ->
     $(@el).html(@template({todos: @collection, id: @id}))
     todo = @collection.findWhere({id: parseInt(@id)})
-    @$("#parent_todo").html(todo.get('description'))
+    if todo
+      @$("#parent_todo").text(todo.get('description'))
+      @$("#parent_todo").attr("href", "#todos/#{todo.get('todo_id')}")
+    else
+      @$("#parent_todo").html("To-Do Nest")
+      @$("#parent_todo").attr("href", "")
     _.each(@collection.where({todo_id: parseInt(@id)}), @appendTodo)
     this
 
