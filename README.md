@@ -4,8 +4,11 @@
 
 # ToDo
 ---
-- #### build UI with backbone
-- #### tree graph using d3
+- #### improve styling for UI
+- #### add icon for tree
+- #### improve scaling for tree graph
+- #### add directories for graphing specific todos
+- #### add cheeseburger icon/menu
 - #### integrate a calendar
 - #### repeat todos
 - #### assign todos to other users
