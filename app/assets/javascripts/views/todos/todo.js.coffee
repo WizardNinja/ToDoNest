@@ -4,6 +4,7 @@ class ToDoNest.Views.Todo extends Backbone.View
 
   events:
     'click .todo_link': 'redirectTodo'
+    'click .graph_link': 'redirectGraph'
     'click .destroy': 'clear'
     'click .toggle': 'toggleDone'
 
@@ -16,6 +17,11 @@ class ToDoNest.Views.Todo extends Backbone.View
   	event.preventDefault()
   	id = $(event.target).attr('data')
   	window.location.href = "http://localhost:3000/#todos/#{id}"
+
+  redirectGraph: (event) ->
+    event.preventDefault()
+    id = $(event.target).attr('data')
+    window.location.href = "http://localhost:3000/#show_graph/#{id}"
 
   clear: (event) ->
     event.preventDefault()

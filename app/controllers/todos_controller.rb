@@ -2,11 +2,19 @@ class TodosController < ApplicationController
 	respond_to :json
 
 	def index
-		respond_with Todo.all
+		if current_user
+			respond_with current_user.todos
+		else
+			respond_with []
+		end
 	end
 
 	def show
-		respond_with Todo.find(params[:id])
+		if current_user
+			respond_with Todo.where(id: params[:id], user_id: current_user.id)
+		else
+			respond_with []
+		end
 	end
 
 	def create
@@ -14,10 +22,18 @@ class TodosController < ApplicationController
 	end
 
 	def update
-		respond_with Todo.update(params[:id], params[:todo])
+		if !Todo.where(id: params[:id], user_id: current_user.id).empty?
+			respond_with Todo.update(params[:id], params[:todo])
+		else
+			respond_with []
+		end
 	end
 
 	def destroy
-		respond_with Todo.destroy(params[:id])
+		if !Todo.where(id: params[:id], user_id: currrent_user.id).empty?
+			respond_with Todo.destroy(params[:id])
+		else
+			respond_with []
+		end
 	end
 end

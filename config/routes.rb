@@ -3,6 +3,7 @@ ToDoNest::Application.routes.draw do
 
   root to: 'main#index'
   match 'api/index_graph', to: 'main#index_graph'
+  match 'api/show_graph/:id', to: 'main#show_graph'
   scope "api" do
   	resources :todos
   end

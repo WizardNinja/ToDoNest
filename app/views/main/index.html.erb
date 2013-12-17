@@ -1,1 +1,17 @@
 <div id="todo_list">Loading...</div>
+
+<% if current_user %>
+	<nav id="menu" class="menu">
+		<a href="#" class="menu-trigger"><span>Menu</span></a>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#todos/0">Root</a></li>
+			<li><a href="#">Leafs</a></li>
+			<% if params[:id] %>
+				<li><a href="#show_graph/<%= params[:id] %>">Graph</a></li>
+			<% else %>
+				<li><a href="#index_graph">Graph</a></li>
+			<% end %>
+		</ul>
+	</nav>
+<% end %>

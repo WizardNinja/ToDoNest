@@ -1,4 +1,5 @@
 <input class="toggle" type="checkbox">
 <label><%= @todo.get('description') %></label>
-<a class="todo_link" href="#" data="<%= @todo.get('id') %>">Todo_link</a>
-<a class="destroy">X</a>
+<a class="todo_link" href="#" ><i class="fa fa-arrow-circle-down" data="<%= @todo.get('id') %>"></i></a>
+<a class="graph_link" href="#" ><i class="fa fa-code-fork" data="<%= @todo.get('id') %>"></i></a>
+<a class="destroy"><i class="fa fa-trash-o"></i></a>

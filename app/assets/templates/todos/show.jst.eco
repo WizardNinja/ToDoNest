@@ -2,8 +2,7 @@
 
 <form id="new_todo">
 	<input type="text" name="name" id="new_todo_description">
-	<input type="hidden" value=<%= @id %> id="new_todo_todo_id">
-	<input type="submit" value="Add">
+	<input type="hidden" value=<%= @id %> id="new_todo_todo_id" placeholder="What do you need todo?">
 </form>
 
 <ul id="todos"></ul>
