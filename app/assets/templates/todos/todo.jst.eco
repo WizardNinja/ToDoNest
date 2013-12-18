@@ -1,5 +1,16 @@
-<input class="toggle" type="checkbox">
-<label><%= @todo.get('description') %></label>
-<a class="todo_link" href="#" ><i class="fa fa-arrow-circle-down" data="<%= @todo.get('id') %>"></i></a>
-<a class="graph_link" href="#" ><i class="fa fa-code-fork" data="<%= @todo.get('id') %>"></i></a>
-<a class="destroy"><i class="fa fa-trash-o"></i></a>
+<div class="view">
+	<% if @todo.get('completed'): %>
+	<input class="toggle" type="checkbox" checked="checked">
+	<% else: %>
+	<input class="toggle" type="checkbox">
+	<% end %>
+
+	<label><%= @todo.get('description') %></label>
+	<span class="icons">
+		<a class="destroy"><i class="fa fa-trash-o"></i></a>
+		<a class="graph_link" href="#" ><i class="fa fa-code-fork" data="<%= @todo.get('id') %>"></i></a>
+		<a class="todo_link" href="#" ><i class="fa fa-arrow-circle-down" data="<%= @todo.get('id') %>"></i></a>
+	</span>
+</div>
+<input class="edit" type="text" value="<%= @todo.get('description') %>">
+

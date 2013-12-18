@@ -30,7 +30,7 @@ class TodosController < ApplicationController
 	end
 
 	def destroy
-		if !Todo.where(id: params[:id], user_id: currrent_user.id).empty?
+		if !Todo.where(id: params[:id], user_id: current_user.id).empty?
 			respond_with Todo.destroy(params[:id])
 		else
 			respond_with []

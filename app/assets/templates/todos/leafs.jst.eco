@@ -1,8 +1,7 @@
-<h1><a id="parent_todo" href="#"></a></h1>
+<h1><a href="#todos/0">To-Do Nest</a></h1>
 
 <form id="new_todo">
 	<input type="text" name="name" id="new_todo_description" placeholder="What do you need todo?">
-	<input type="hidden" value=<%= @id %> id="new_todo_todo_id">
 </form>
 
 <ul id="todos"></ul>

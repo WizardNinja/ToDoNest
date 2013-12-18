@@ -4,6 +4,7 @@ class ToDoNest.Views.TodoShow extends Backbone.View
 
   events:
     'submit #new_todo': 'createTodo'
+    '.click .destroy': 'updateTodos'
 
   initialize: ->
     @collection.on('sync', @render, this)
@@ -23,12 +24,16 @@ class ToDoNest.Views.TodoShow extends Backbone.View
     this
 
   appendTodo: (todo) =>
-    view = new ToDoNest.Views.Todo(model: todo)
+    view = new ToDoNest.Views.Todo({collection: @collection, model: todo})
     @$('#todos').append(view.render().el)
 
   createTodo: (event) ->
     event.preventDefault()
     attributes = {description: $('#new_todo_description').val(),todo_id: @id, user_id: parseInt($("#user_id").html())}
     @collection.create attributes
+
+  updateTodos: (event) ->
+    event.preventDefault()
+    console.log "I'M DA BESS"
 
 

@@ -36,11 +36,15 @@ a {
   margin-top: 20px;
 }
 
+#user_nav {
+  text-align: right;
+}
+
 form input {
   font-size: 20px;
 }
 form input[type='text'] {
-  width: 540px;
+  width: 620px;
 }
 
 #draw {
@@ -64,7 +68,7 @@ ul {
 #todos li {
   border-bottom: solid 1px #CCC;
   padding: 10px 10px;
-  font-size: 16px;
+  font-size: 20px;
   position: relative;
   .winner {
     position: absolute;
@@ -78,6 +82,20 @@ ul {
   }
 }
 
+i {
+  float: right;
+  margin-left: 6px;
+  color: #000;
+}
+
 .done {
   text-decoration: line-through;
+}
+
+.edit {
+  display: none;
+}
+
+.editing .edit {
+  display: block;
 }

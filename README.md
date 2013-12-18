@@ -4,11 +4,10 @@
 
 # ToDo
 ---
+- #### add leafs link to cheeseburger menu
+- #### implement overlay for cheeseburger menu
+- #### focus should stay on input while entering todos
 - #### improve styling for UI
-- #### add icon for tree
-- #### improve scaling for tree graph
-- #### add directories for graphing specific todos
-- #### add cheeseburger icon/menu
 - #### integrate a calendar
 - #### repeat todos
 - #### assign todos to other users

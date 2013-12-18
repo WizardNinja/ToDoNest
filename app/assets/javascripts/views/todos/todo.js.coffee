@@ -5,6 +5,8 @@ class ToDoNest.Views.Todo extends Backbone.View
   events:
     'click .todo_link': 'redirectTodo'
     'click .graph_link': 'redirectGraph'
+    'dblclick .view': 'edit'
+    'keypress .edit': 'updateOnEnter'
     'click .destroy': 'clear'
     'click .toggle': 'toggleDone'
 
@@ -23,8 +25,22 @@ class ToDoNest.Views.Todo extends Backbone.View
     id = $(event.target).attr('data')
     window.location.href = "http://localhost:3000/#show_graph/#{id}"
 
+  edit: () ->
+    $(@el).toggleClass("editing");
+    
+  updateOnEnter: (event) ->
+    if event.keyCode == 13
+      value = event.target.value
+      if value
+        @model.save {description: value}
+        $(@el).toggleClass("editing")
+
   clear: (event) ->
     event.preventDefault()
+    todos = @collection.where(todo_id: @model.get('id'))
+    _.each(todos, (todo) ->
+      todo.save(todo_id: @model.get('id'))
+    )
     this.model.destroy()
 
   toggleDone: (event) ->

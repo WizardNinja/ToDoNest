@@ -2,6 +2,7 @@ class ToDoNest.Routers.Todos extends Backbone.Router
 	routes:
 		'': 'index'
 		'todos/:id': 'show'
+		'leafs': 'leafs'
 		'index_graph': 'indexGraph'
 		'show_graph/:id': 'showGraph'
 
@@ -11,23 +12,36 @@ class ToDoNest.Routers.Todos extends Backbone.Router
 	index: ->
 		view = new ToDoNest.Views.TodosIndex(collection: @collection)
 		$('#todo_list').html(view.render().el)
+		$('#container').width(620)
 
 	show: (id) ->
 		view = new ToDoNest.Views.TodoShow({collection: @collection, id: id})
 		$('#todo_list').html(view.render().el)
+		$('#container').width(620)
+
+	leafs: ->
+		view = new ToDoNest.Views.TodosLeafs(collection: @collection)
+		$('#todo_list').html(view.render().el)
+		$('#container').width(620)
 
 	indexGraph: ->
-		$('#todo_list').html("")
-		canvas = d3.select("#todo_list").append("svg")
-		.attr("width", 1000)
-		.attr("height", 1000)
-		.append("g")
-		.attr("transform", "translate(50,50)")
-
-		tree = d3.layout.tree().size([500,500])
-
 		$.get("api/index_graph").done (data) ->
-			nodes = tree.nodes data
+			$('#todo_list').html("")
+			width = (data["width"] + 1) * 350
+			if width < 620
+				width = 620
+			height = data["height"] * 60
+			d = data["tree"]
+			$('#container').width(width)
+			canvas = d3.select("#todo_list").append("svg")
+			.attr("width", width)
+			.attr("height", height + 60)
+			.append("g")
+			.attr("transform", "translate(50,50)")
+
+			tree = d3.layout.tree().size([height - 60, width - 350])
+
+			nodes = tree.nodes d
 			links = tree.links nodes
 
 			node = canvas.selectAll(".node")
@@ -58,18 +72,25 @@ class ToDoNest.Routers.Todos extends Backbone.Router
 			.attr("d", diagonal)
 
 	showGraph: (id) ->
-		console.log "Hello, world!"
-		$('#todo_list').html("")
-		canvas = d3.select("#todo_list").append("svg")
-		.attr("width", 800)
-		.attr("height", 800)
-		.append("g")
-		.attr("transform", "translate(50,50)")
-
-		tree = d3.layout.tree().size([400,600])
-
 		$.get("api/show_graph/#{id}").done (data) ->
-			nodes = tree.nodes data
+			$('#todo_list').html("")
+			width = data["width"] * 350
+			if width < 620
+				width = 620
+			height = data["height"] * 60
+			d = data["tree"]
+			console.log "setting container width"
+			$('#container').width(width)
+
+			canvas = d3.select("#todo_list").append("svg")
+			.attr("width", width)
+			.attr("height", height + 60)
+			.append("g")
+			.attr("transform", "translate(50,50)")
+
+			tree = d3.layout.tree().size([height - 60, width - 350])
+
+			nodes = tree.nodes d
 			links = tree.links nodes
 
 			node = canvas.selectAll(".node")
