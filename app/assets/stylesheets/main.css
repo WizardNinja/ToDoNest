@@ -43,8 +43,13 @@ a {
 form input {
   font-size: 20px;
 }
+
 form input[type='text'] {
   width: 620px;
+}
+
+#new_todo input {
+  width: 100%;
 }
 
 #draw {
@@ -64,6 +69,8 @@ ul {
   margin-top: 10px;
   border-top: solid 1px #CCC;
 }
+
+
 
 #todos li {
   border-bottom: solid 1px #CCC;

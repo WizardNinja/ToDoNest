@@ -12,17 +12,20 @@ class ToDoNest.Routers.Todos extends Backbone.Router
 	index: ->
 		view = new ToDoNest.Views.TodosIndex(collection: @collection)
 		$('#todo_list').html(view.render().el)
-		$('#container').width(620)
+		if $(window).width() < 620
+			$('#container').width($(window).width() - 80)
 
 	show: (id) ->
 		view = new ToDoNest.Views.TodoShow({collection: @collection, id: id})
 		$('#todo_list').html(view.render().el)
-		$('#container').width(620)
+		if $(window).width() < 620
+			$('#container').width($(window).width() - 80)
 
 	leafs: ->
 		view = new ToDoNest.Views.TodosLeafs(collection: @collection)
 		$('#todo_list').html(view.render().el)
-		$('#container').width(620)
+		if $(window).width() < 620
+			$('#container').width($(window).width() - 80)
 
 	indexGraph: ->
 		$.get("api/index_graph").done (data) ->
