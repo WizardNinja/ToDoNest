@@ -170,5 +170,5 @@
 .menu ul:first-of-type li a:focus,
 .menu ul li a:hover:before,
 .menu ul li a:focus:before {
-	color: #1abc9c;
+	color: #bbb;
 }
