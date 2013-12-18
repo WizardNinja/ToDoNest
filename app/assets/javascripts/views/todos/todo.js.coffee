@@ -18,12 +18,12 @@ class ToDoNest.Views.Todo extends Backbone.View
   redirectTodo: (event) ->
   	event.preventDefault()
   	id = $(event.target).attr('data')
-  	window.location.href = "http://localhost:3000/#todos/#{id}"
+  	window.location.href = "http://to-do-nest.herokuapp.com/#todos/#{id}"
 
   redirectGraph: (event) ->
     event.preventDefault()
     id = $(event.target).attr('data')
-    window.location.href = "http://localhost:3000/#show_graph/#{id}"
+    window.location.href = "http://to-do-nest.herokuapp.com/#show_graph/#{id}"
 
   edit: () ->
     $(@el).toggleClass("editing");
