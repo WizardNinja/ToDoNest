@@ -17,7 +17,7 @@ class ToDoNest.Views.TodosLeafs extends Backbone.View
 
   appendTodo: (todo) =>
     if(@collection.where(todo_id: todo.get('id')).length == 0)
-      view = new ToDoNest.Views.Todo(model: todo)
+      view = new ToDoNest.Views.Todo({collection: @collection, model: todo})
       @$('#todos').append(view.render().el)
 
   createTodo: (event) ->

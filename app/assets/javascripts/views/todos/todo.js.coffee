@@ -13,6 +13,8 @@ class ToDoNest.Views.Todo extends Backbone.View
   render: ->
     $(@el).html(@template(todo: @model))
     $(@el).toggleClass('done', @model.get('completed'))
+    console.log @model.get('id')
+    $(@el).toggleClass('has_children', @collection.where(todo_id: @model.get('id')).length > 0)
     this
 
   redirectTodo: (event) ->

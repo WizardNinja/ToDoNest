@@ -23,14 +23,14 @@
 	<div id="user_nav">
 		<% if user_signed_in? %>
 			Logged in as <strong><%= current_user.email %></strong>.
-			<%= link_to 'Edit profile', edit_user_registration_path %> |
-			<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+			<%= link_to '<i class="fa fa-user"></i>'.html_safe, edit_user_registration_path %>
+			<%= link_to '<i class="fa fa-sign-out"></i>'.html_safe, destroy_user_session_path, method: :delete %>
 		<% else %>
 			<%= link_to "Sign up", new_user_registration_path %> |
-			<%= link_to "Login", new_user_session_path %>
-		<% end %> |
-		<%= link_to "Graph", "/#index_graph" %> |
-		<%= link_to "Home", root_path %>
+			<%= link_to '<i class="fa fa-sign-in"></i>'.html_safe, new_user_session_path %>
+		<% end %>
+		<%= link_to '<i class="fa fa-code-fork"></i>'.html_safe, "/#index_graph" %>
+		<%= link_to '<i class="fa fa-home"></i>'.html_safe, "/#todos/0" %>
 	</div>
 
 	<%= yield %>

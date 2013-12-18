@@ -83,6 +83,11 @@ ul {
 }
 
 i {
+  margin-left: 6px;
+  color: #000;
+}
+
+#todos i {
   float: right;
   margin-left: 6px;
   color: #000;
@@ -98,4 +103,9 @@ i {
 
 .editing .edit {
   display: block;
+  width: 600px;
+}
+
+#todos .has_children {
+  background: #bbb;
 }

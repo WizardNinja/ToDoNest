@@ -16,7 +16,7 @@ class ToDoNest.Views.TodosIndex extends Backbone.View
     this
 
   appendTodo: (todo) =>
-    view = new ToDoNest.Views.Todo(model: todo)
+    view = new ToDoNest.Views.Todo({collection: @collection, model: todo})
     @$('#todos').append(view.render().el)
 
   createTodo: (event) ->
