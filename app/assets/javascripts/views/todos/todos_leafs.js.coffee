@@ -13,6 +13,7 @@ class ToDoNest.Views.TodosLeafs extends Backbone.View
   render: ->
     $(@el).html(@template(todos: @collection))
     @collection.each(@appendTodo)
+    $('#new_todo_description').focus()
     this
 
   appendTodo: (todo) =>

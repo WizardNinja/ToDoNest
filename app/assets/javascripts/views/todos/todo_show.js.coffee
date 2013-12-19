@@ -21,6 +21,7 @@ class ToDoNest.Views.TodoShow extends Backbone.View
       @$("#parent_todo").html("To-Do Nest")
       @$("#parent_todo").attr("href", "")
     _.each(@collection.where({todo_id: parseInt(@id)}), @appendTodo)
+    $('#new_todo_description').focus()
     this
 
   appendTodo: (todo) =>

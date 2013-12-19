@@ -6,10 +6,9 @@
 ---
 - #### only show todo icons on hover
 - #### improve styling for UI
-- #### increase with of edit text input box
-- #### add visual que for a todo having underlying todos
 - #### add delete completed button
 - #### add check all button
+- #### add order data to todos and print them in order according to there order
 - #### drag a todo to reorder todos
 - #### drag a todo to place todos inside other todos
 - #### implement overlay for cheeseburger menu
